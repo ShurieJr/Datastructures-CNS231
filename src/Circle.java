@@ -1,13 +1,13 @@
 public class Circle {
     //variables  - data fields
-    double radius;
+    double radius;  //0.0
     //constructors
-    Circle(){     //no argument
-        radius = 1.0;
-    }
-    Circle( double value){   // with arguments
-        radius = value;
-    }
+//    Circle(){     //no argument
+//        radius = 1.0;
+//    }
+//    Circle( double value){   // with arguments
+//        radius = value;
+//    }
 
     //methods
     double getArea(){
