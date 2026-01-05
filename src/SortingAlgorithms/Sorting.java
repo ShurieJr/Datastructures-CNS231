@@ -37,9 +37,41 @@ public class Sorting {
         }
     }
 
+    //bubble sort
+    static void bubbleSort(int[] data){
+        int size = data.length;
+        int temp;
+        for(int index=size-1; index>=0; index--){
+            for(int scan =0; scan<index ; scan++){
+                if(data[scan] > data[scan+1]){
+                    //swap
+                    temp=data[scan];
+                    data[scan] = data[scan+1];
+                    data[scan+1] = temp;
+                }
+            }
+        }
+
+    }
+    //bubble sort (generic)
+    static <T extends Comparable<T>> void genericBubbleSort(T[] data){
+        int size = data.length;
+        T temp;
+        for(int index=size-1; index>=0; index--){
+            for(int scan =0; scan<index ; scan++){
+                if(data[scan].compareTo(data[scan+1]) > 0){
+                    //swap
+                    temp=data[scan];
+                    data[scan] = data[scan+1];
+                    data[scan+1] = temp;
+                }
+            }
+        }
+
+    }
     //main method
     static void main() {
-        Integer[] marks = {10 , 3,11,7,100};
+        Integer[] marks = {10 , 3,11,7,100 , 34 ,5};
         String[] names = {"Osman","Farah" , "Ali" , "Gedi","Warsame"};
         Character[] letters = {'F' , 'E' , 'A' , 'C'  ,'D'};
         System.out.println("unsorted:");
@@ -47,13 +79,16 @@ public class Sorting {
         System.out.println(Arrays.toString(names));
         System.out.println(Arrays.toString(letters));
 
-        Sorting.<Integer>genericSelectionSort(marks);
-        Sorting.<String>genericSelectionSort(names);
-        Sorting.<Character>genericSelectionSort(letters);
+//        Sorting.<Integer>genericSelectionSort(marks);
+//        Sorting.<String>genericSelectionSort(names);
+//        Sorting.<Character>genericSelectionSort(letters);
+        genericBubbleSort(marks);
+        genericBubbleSort(names);
+        genericBubbleSort(letters);
 
         System.out.println("Sorted:");
         System.out.println(Arrays.toString(marks));
         System.out.println(Arrays.toString(names));
-        System.out.println(Arrays.toString(letters));
+       System.out.println(Arrays.toString(letters));
     }
 }
