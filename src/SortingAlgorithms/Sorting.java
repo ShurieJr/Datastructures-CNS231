@@ -69,26 +69,46 @@ public class Sorting {
         }
 
     }
+
+    //Insertion Sort
+    static void insertionSort(int[] data){
+        int size = data.length;
+        int value;
+        int position;
+        for(int index = 1; index < size;  index++){
+            value = data[index];
+            position = index;
+            while(position > 0 && (value < data[position-1])){
+                //shifting elements to the right
+                data[position] = data[position-1];
+                position--;
+            }
+            data[position] = value;
+        }
+    }
+
+
     //main method
     static void main() {
-        Integer[] marks = {10 , 3,11,7,100 , 34 ,5};
-        String[] names = {"Osman","Farah" , "Ali" , "Gedi","Warsame"};
-        Character[] letters = {'F' , 'E' , 'A' , 'C'  ,'D'};
+        int[] marks = {10 , 3,11,7,100 , 34 ,5};
+//        Integer[] marks = {10 , 3,11,7,100 , 34 ,5};
+//        String[] names = {"Osman","Farah" , "Ali" , "Gedi","Warsame"};
+//        Character[] letters = {'F' , 'E' , 'A' , 'C'  ,'D'};
         System.out.println("unsorted:");
         System.out.println(Arrays.toString(marks));
-        System.out.println(Arrays.toString(names));
-        System.out.println(Arrays.toString(letters));
+//        System.out.println(Arrays.toString(names));
+//        System.out.println(Arrays.toString(letters));
 
 //        Sorting.<Integer>genericSelectionSort(marks);
 //        Sorting.<String>genericSelectionSort(names);
 //        Sorting.<Character>genericSelectionSort(letters);
-        genericBubbleSort(marks);
-        genericBubbleSort(names);
-        genericBubbleSort(letters);
+        insertionSort(marks);
+//        genericBubbleSort(names);
+//        genericBubbleSort(letters);
 
         System.out.println("Sorted:");
         System.out.println(Arrays.toString(marks));
-        System.out.println(Arrays.toString(names));
-       System.out.println(Arrays.toString(letters));
+//        System.out.println(Arrays.toString(names));
+//       System.out.println(Arrays.toString(letters));
     }
 }
